@@ -1,9 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.0.3'
-gem 'mysql2'
-gem 'memcache-client'
-gem 'cached_model'
+gem 'rails', '4.0.4'
+gem 'mysql'
 gem 'geokit'
 
 # Bundle edge Rails instead:

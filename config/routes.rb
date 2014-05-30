@@ -1,4 +1,4 @@
-Bumptious::Application.routes.draw do
+TheGospelite::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -54,9 +54,9 @@ Bumptious::Application.routes.draw do
 
   #root :to => "home#index"
 
-  match '/sweet-new-music-artist/:link_hash', :controller => 'unlock', :action => 'check_hash', :as => 'unlock_hash'
+  match '/sweet-new-music-artist/:link_hash', :controller => 'unlock', :action => 'check_hash', :as => 'unlock_hash', :via => :get
 
-  match '/from-new-album/:mp3_hash', :controller => 'unlock', :action => 'download_five', :as => 'download_five'
+  match '/from-new-album/:mp3_hash', :controller => 'unlock', :action => 'download_five', :as => 'download_five', :via => :get
 
   root :to => "album#show", :id => '2'
 
@@ -68,6 +68,6 @@ Bumptious::Application.routes.draw do
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  match ':controller(/:action(/:id(.:format)))'
-  match '*path', :controller => 'album', :action => 'not_found'
+  match ':controller(/:action(/:id(.:format)))', :via => [:get, :post, :put, :delete]
+  match '*path', :controller => 'album', :action => 'not_found', :via => [:get, :post, :put, :delete]
 end

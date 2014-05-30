@@ -8,15 +8,15 @@ class Message < ActionMailer::Base
          :reply => data[:email],
          :subject => "A fan sent you a message")
 =end
-     recipients 'matt@bumptiousmusic.com'
-     from       "matt@bumptiousmsuic.com"
+     recipients 'matthewcarrk@gmail.com'
+     from       "noreply@thegospelite.com"
      subject    "A fan sent you a message"
      body       :content => data
   end
 
   def unlocked(data)
-     recipients 'bikokid@gmail.com'
-     from       "bikokid@gmail.com"
+     recipients 'matthewcarrk@gmail.com'
+     from       "noreply@thegospelite.com"
      subject    "Five tracks have been unlocked"
      body       :content => data
   end

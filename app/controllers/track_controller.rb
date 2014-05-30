@@ -15,11 +15,11 @@ class TrackController < ApplicationController
     end
     respond_to do |format|
       format.mp3 {
-        dname = ('Bumptious - ' + @track.name) + '.mp3'
+        dname = (@album.name + ' - ' + @track.name) + '.mp3'
         send_file RAILS_ROOT + '/public/music/' + @album.album_number.to_s + '/' + @track.local_name + '.mp3', :filename => dname, :type=>"application/force-download"
       }
       format.m4a {
-        dname = ('Bumptious - ' + @track.name) + '.m4a'
+        dname = (@album.name + ' - ' + @track.name) + '.m4a'
         send_file RAILS_ROOT + '/public/music/'+ @album.album_number.to_s + '/' + @track.local_name + '.m4a', :filename => dname, :type=>"application/force-download"
       }
     end
