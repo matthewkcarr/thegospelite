@@ -5,5 +5,5 @@ require File.expand_path('../application', __FILE__)
 TheGospelite::Application.initialize!
 Mime::Type.register 'audio/mpeg', :mp3
 Mime::Type.register 'audio/mp4a-latm', :m4a
-Mime::Type.register 'application/zip', :zip
+#Mime::Type.register 'application/zip', :zip
 

@@ -1,5 +1,6 @@
 class FanLocation < ActiveRecord::Base
 
+  attr_accessor :updated, :occurences
 
   def self.newest_three
     retarry = []

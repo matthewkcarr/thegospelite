@@ -3,6 +3,12 @@ source 'http://rubygems.org'
 gem 'rails', '4.0.4'
 gem 'mysql'
 gem 'geokit'
+gem 'sass-rails'
+
+# Use Uglifier as compressor for JavaScript assets
+gem 'uglifier', '>= 1.3.0'
+
+gem 'jquery-rails'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

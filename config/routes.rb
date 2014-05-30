@@ -58,7 +58,7 @@ TheGospelite::Application.routes.draw do
 
   match '/from-new-album/:mp3_hash', :controller => 'unlock', :action => 'download_five', :as => 'download_five', :via => :get
 
-  root :to => "album#show", :id => '2'
+  root :to => "album#show", :id => '1'
 
   
   #match 'home/downloaded/:id', :to => 'home#downloaded'
