@@ -49,7 +49,7 @@ class UnlockController < ApplicationController
 
   def fivemore 
     respond_to do |format|
-      format.js 
+      format.json 
     end
   end
 
@@ -77,7 +77,7 @@ class UnlockController < ApplicationController
     #  ret[track.id] = number_with_delimiter(track.download_count)
     #end
     respond_to do |format|
-      format.js { render :json => ret  }
+      format.json { render :json => ret  }
     end
   end
 
@@ -90,7 +90,7 @@ class UnlockController < ApplicationController
       i = i + 1
     end
     respond_to do |format|
-      format.js { render :json => ret  }
+      format.json { render :json => ret  }
     end
   end
 

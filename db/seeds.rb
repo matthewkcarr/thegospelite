@@ -7,7 +7,7 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 fyif = Album.find_by_name('The Gospelite - Four Years in the Future')
 unless fyif
-  a = Album.new(:name => "The Goseplite - Four Years in the future", :album_number => 1, :mp3_size => 50, :m4a_size => 0)
+  a = Album.new(:name => "The Gospelite - Four Years in the Future", :album_number => 1, :mp3_size => 50, :m4a_size => 0)
   a.save
   Track.create(:name => 'urnotalone', :local_name => 'urnotalone', :album => a, :download_count => 0, :track_number => 1)
   Track.create(:name => 'alright', :local_name => 'alright', :album => a, :track_number => 2)

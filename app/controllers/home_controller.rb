@@ -8,8 +8,8 @@ class HomeController < ApplicationController
   def notified 
     FanEmail.create(:email => params[:notified][:email])
     respond_to do |format|
-      format.js { render :json => "Great, thanks!"  }
       format.html { redirect_to "/"}
+      format.js { render :json => "Great, thanks!"  }
     end
   end
 

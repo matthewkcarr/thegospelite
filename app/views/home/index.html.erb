@@ -44,6 +44,7 @@
     return false;
   }
   function do_notify(btn) {
+    var success = '';
     var message = $('#notified_form').serializeArray();
     $.post($('#notified_form').attr('action'), message, function(data){ 
       var msg = '<div style="padding-top: 25px;">' + data + '</div>';
@@ -51,7 +52,8 @@
       $('#notified_header').hide();
       $('#notified_cont').center();
       $("#notified_fuzz").fadeOut(3000);  
-    });
+    }, success, 'json');
+    $('#notified_form').preventDefault();
     return false;
   }
   $(document).ready(function(){ 
@@ -247,7 +249,7 @@
       <div id="notified_inputs" class="msgbox_content">
         <br/>
         <br/>
-        <%= form_for :notified, :html => { :id => 'notified_form' }, :url => '/home/notified' do |f| %>
+        <%= form_for :notified, :html => { :id => 'notified_form' }, :url => '/home/notified.js' do |f| %>
           Your email: <br/> 
           <%= f.text_field 'email', :class =>  'message_us_inputs' %><br/>
           <br/>

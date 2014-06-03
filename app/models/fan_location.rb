@@ -31,7 +31,7 @@ class FanLocation < ActiveRecord::Base
     rval = self.all(:select => "count(*) as occurences, city, state, country_code, '' as created", :group => "city, state, country_code", :order => "occurences DESC", :limit => 3)
     rval.each do |fl|
       candidate = self.find(:first, :conditions => {:city => fl.city, :state => fl.state, :country_code => fl.country_code}, :order => "updated_at DESC")
-      fl[:updated] = candidate.updated_at.strftime("%m/%d/%Y") 
+      fl.updated = candidate.updated_at.strftime("%m/%d/%Y") 
     end
     if rval.size < 3
       rval[0] = FanLocation.new(:city => "San Francisco", :state => "CA", :country_code => "US", :updated => Time.now.strftime("%m%d%Y"))

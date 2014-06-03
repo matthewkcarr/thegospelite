@@ -23,7 +23,7 @@ class AlbumController < ApplicationController
     @email = ExtracksEmail.new
     respond_to do |format|
       format.html {
-        render :show
+        render :action => :show
       }
       format.zip {
         Track.transaction do

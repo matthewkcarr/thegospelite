@@ -290,18 +290,18 @@
 
     <div id="shbam_container">
       <div id="broad_sbam" class="agency">LIKE WHAT YOU HEAR?</div>
-      <div id="bam_btn_container"><img src="/images/sbam_btn.png" id="sbam_btn"></div>
+      <div id="bam_btn_container"><img src="/assets/sbam_btn.png" id="sbam_btn"></div>
     </div>
 
     <div class="clear"></div>
 
     <div id="full_record_links">
       <div class="page_album album_download">
-        <a href="<%= album_path(@album) + '_m4a.zip' %>" id="all_aac" class="full"><img src="/images/lossless_album.png"></a>
+        <a href="<%= album_path(@album) + '_m4a.zip' %>" id="all_aac" class="full"><img src="/assets/lossless_album.png"></a>
         <div class="sizer agency"><%= @album.m4a_size %> MB &nbsp;<span class="gemstone">(<%= @album.tracks.size %> tracks)</span></div>
       </div>
       <div class="page_album album_download">
-        <a href="<%= album_path(@album) + '_mp3.zip' %>" id="all_mp3" class="full"><img src="/images/mp3_album.png"></a>
+        <a href="<%= album_path(@album) + '_mp3.zip' %>" id="all_mp3" class="full"><img src="/assets/mp3_album.png"></a>
         <div class="sizer agency"><%= @album.mp3_size %> MB &nbsp;<span class="gemstone">(<%= @album.tracks.size %> tracks)</span></div>
       </div>
     </div>
@@ -376,7 +376,7 @@
 
   <div id="games">
     <div id="kill_bad_guys">
-      <img id="kill_bad_guys_btn" src="/images/play_game.png">
+      <img id="kill_bad_guys_btn" src="/assets/play_game.png">
     </div>
   </div>
 
