@@ -6,47 +6,26 @@
 <% end  %>
 <% content_for :meta do -%>
     <% if @album.album_number == 2 %>
-      <meta name="title" content="BUMPTIOUS - REMIX ELIXIRS" />
-      <meta name="description" content="sweet delicious beats" />
-      <meta name="keywords" content="bumptious remix elixirs and the tares destroyer beats mp3 m4u m4a aac djs" />
+      <meta name="title" content="THE GOSPELITE - FOUR YEARS IN THE FUTURE" />
+      <meta name="description" content="a folk electronic music album by the gospelite" />
+      <meta name="keywords" content="folk electronic music album the gospelite mp3 m4u m4a aac djs" />
       <!-- facebook page stuff -->
-      <meta property="og:title" content="Bumptious - Remix Elixirs"/>
+      <meta property="og:title" content="The Gospelite - Four Years in the future"/>
       <meta property="og:type" content="album"/>
-      <meta property="og:image" content="http://bumptiousmusic.com/images/website.jpg"/>
-      <meta property="og:url" content="http://bumptiousmusic.com/"/>
-      <meta property="og:site_name" content="bumptiousmusic.com"/>
-      <meta property="fb:admins" content="3614966"/> 
-      <meta property="og:description" content="sweet delicious beats - get the albums for free because we love you"/>
-      <meta property="og:audio" content="http://bumptiousmusic.com/music/2/major_lazer.mp3"/>
-      <meta property="og:audio:title" content="Hold the line (3rd track off Remix Elixirs)" />
-      <meta property="og:audio:artist" content="Bumptious" />
-      <meta property="og:audio:album" content="Remix Elixirs" />
-      <meta property="og:audio:type" content="application/mp3" />
-    <% elsif @album.album_number == 1 %>
-      <meta name="title" content="BUMPTIOUS - THE TARES DESTROYER" />
-      <meta name="description" content="sweet delicious beats" />
-      <meta name="keywords" content="bumptious remix elixirs and the tares destroyer beats mp3 m4u m4a aac djs" />
-      <!-- facebook page stuff -->
-      <meta property="og:title" content="Bumptious - The Tares Destroyer"/>
-      <meta property="og:type" content="album"/>
-      <meta property="og:image" content="http://bumptiousmusic.com/images/website.jpg"/>
-      <meta property="og:url" content="http://bumptiousmusic.com/"/>
-      <meta property="og:site_name" content="bumptiousmusic.com"/>
-      <meta property="fb:admins" content="3614966"/> 
-      <meta property="og:description" content="sweet delicious beats - get the albums for free because we love you"/>
-      <meta property="og:audio" content="http://bumptiousmusic.com/music/1/hold_the_line.mp3"/>
-      <meta property="og:audio:title" content="Hold the line (3rd track off The Tares Destroyer)" />
-      <meta property="og:audio:artist" content="Bumptious" />
-      <meta property="og:audio:album" content="The Tares Destroyer" />
+      <meta property="og:image" content="http://thegospelite.com/images/website.jpg"/>
+      <meta property="og:url" content="http://thegospelite.com/"/>
+      <meta property="og:site_name" content="thegospelite.com"/>
+      <meta property="fb:admins" content=""/> 
+      <meta property="og:description" content="sweet delicious folk electronic - get the albums for free because we love you"/>
+      <meta property="og:audio" content="http://thegospelite.com/music/1/urnotalone.mp3"/>
+      <meta property="og:audio:title" content="urnotalone song" />
+      <meta property="og:audio:artist" content="The Gospelite" />
+      <meta property="og:audio:album" content="Four Years" />
       <meta property="og:audio:type" content="application/mp3" />
     <% end %>
 <% end %>
 <% content_for :js do-%>
   <script type="text/javascript">
-
-  $(function(){
-      $('#myGallery').galleryView();
-  });
 
   function send_email_for_tracks(btn) {
     var message = $('#five_form').serializeArray();
@@ -180,22 +159,6 @@
         five_email(event.target);
       });
     });
-
-    $('#kill_bad_guys_btn').click(function(){
-      $("#games_fuzz").css("height", $(document).height()); 
-      $("#games_fuzz").fadeIn();  
-      $('#games_container').center();
-      window.open('/pgames/bscorp/index.html', 'Bumptious Sponsered Games', '');
-      /*$('#games_container').css('top', '0px');
-      $('#games_container').css('left', '0px');
-      */
-      return false;
-    });
-
-    $("#games_close").click(function(){  
-      $("#games_fuzz").fadeOut();  
-      return false;  
-    }); 
 
     $("#about_us_link").click(function(){  
       $("#about_us_fuzz").css("height", $(document).height()); 
@@ -374,12 +337,6 @@
     <% end %>
   </div>
 
-  <div id="games">
-    <div id="kill_bad_guys">
-      <img id="kill_bad_guys_btn" src="/assets/play_game.png">
-    </div>
-  </div>
-
   <div id="city_leaderboard">
     <p class="agency">CITY RANKINGS</p>
     <% i = 0 %>
@@ -395,13 +352,6 @@
       <% i += 1 %>
     <% end %>
   </div>
-
-
-  <ul id="myGallery">
-        <% for artpic in AlbumController::ART_PICS %>
-            <li><img src="https://s3.amazonaws.com/bumptious/<%= artpic %>" alt="<%= artpic %>" /></li>
-        <% end %>
-  </ul>
 
 
   <div id="page_footer">
@@ -424,13 +374,6 @@
     <div id="fb-root"></div>
     <fb:comments colorscheme="dark" migrated="1" href="<%= album_url( @album ) %>" xid="album_<%= @album.album_number %>" numposts="10" width="725" publish_feed="true">
     </fb:comments>
-  </div>
-</div>
-
-<div id="games_fuzz" class="fuzz">  
-  <div id="games_container">
-    <a id="games_close" class="close" href="" >Done with the game</a>  
-    <% # render :partial => 'games/cron' %>
   </div>
 </div>
 
