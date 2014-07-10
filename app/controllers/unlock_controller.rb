@@ -66,31 +66,19 @@ class UnlockController < ApplicationController
     end
     @fan_location.save
     @top_three = FanLocation.top_three
-    ret = Array.new
-    i = 0
-    @top_three.each do |top| 
-      ret[i] = top
-      i = i + 1
-    end
     #@tracks = Track.all
     #@tracks.each do |track|
     #  ret[track.id] = number_with_delimiter(track.download_count)
     #end
     respond_to do |format|
-      format.json { render :json => ret  }
+      format.json { render :json => @top_three }
     end
   end
 
   def new_fan_shbam
     @newest_three = FanLocation.newest_three
-    ret = Array.new
-    i = 0
-    @newest_three.each do |n| 
-      ret[i] = n
-      i = i + 1
-    end
     respond_to do |format|
-      format.json { render :json => ret  }
+      format.json { render :json => @newest_three }
     end
   end
 

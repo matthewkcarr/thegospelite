@@ -5,24 +5,22 @@
 <%= @album_name.upcase %>
 <% end  %>
 <% content_for :meta do -%>
-    <% if @album.album_number == 2 %>
-      <meta name="title" content="THE GOSPELITE - FOUR YEARS IN THE FUTURE" />
-      <meta name="description" content="a folk electronic music album by the gospelite" />
-      <meta name="keywords" content="folk electronic music album the gospelite mp3 m4u m4a aac djs" />
-      <!-- facebook page stuff -->
-      <meta property="og:title" content="The Gospelite - Four Years in the future"/>
-      <meta property="og:type" content="album"/>
-      <meta property="og:image" content="http://thegospelite.com/images/website.jpg"/>
-      <meta property="og:url" content="http://thegospelite.com/"/>
-      <meta property="og:site_name" content="thegospelite.com"/>
-      <meta property="fb:admins" content=""/> 
-      <meta property="og:description" content="sweet delicious folk electronic - get the albums for free because we love you"/>
-      <meta property="og:audio" content="http://thegospelite.com/music/1/urnotalone.mp3"/>
-      <meta property="og:audio:title" content="urnotalone song" />
-      <meta property="og:audio:artist" content="The Gospelite" />
-      <meta property="og:audio:album" content="Four Years" />
-      <meta property="og:audio:type" content="application/mp3" />
-    <% end %>
+    <meta name="title" content="THE GOSPELITE - FOUR YEARS IN THE FUTURE" />
+    <meta name="description" content="a folk electronic music album by the gospelite" />
+    <meta name="keywords" content="folk electronic music album the gospelite mp3 m4u m4a aac djs" />
+    <!-- facebook page stuff -->
+    <meta property="og:title" content="The Gospelite - Four Years in the future"/>
+    <meta property="og:type" content="album"/>
+    <meta property="og:image" content="http://thegospelite.com/images/website.jpg"/>
+    <meta property="og:url" content="http://thegospelite.com/"/>
+    <meta property="og:site_name" content="thegospelite.com"/>
+    <meta property="fb:admins" content=""/> 
+    <meta property="og:description" content="sweet delicious folk electronic - get the albums for free because we love you"/>
+    <meta property="og:audio" content="http://thegospelite.com/music/1/urnotalone.mp3"/>
+    <meta property="og:audio:title" content="urnotalone song" />
+    <meta property="og:audio:artist" content="The Gospelite" />
+    <meta property="og:audio:album" content="Four Years" />
+    <meta property="og:audio:type" content="application/mp3" />
 <% end %>
 <% content_for :js do-%>
   <script type="text/javascript">
@@ -33,15 +31,6 @@
       $('head').append(data);
     });
   }
-  function five_email() {
-      $('#ext_sendemail_btn').click( function() {
-        send_email_for_tracks(this);
-        return false;
-      });
-      $("#five_fuzz").css("height", $(document).height()); 
-      $("#five_fuzz").fadeIn();  
-      $('#five_cont').center();
-  }
 
   function shbam() {
     console.log('shbam called');
@@ -51,7 +40,8 @@
       for (var i=0; i < data.length; i++) {
         if(data[i] != null) {
           var hash = data[i] ;
-          var subhash = hash.fan_location;
+          console.log(hash);
+          var subhash = hash;
           $('#location_' + i).html( subhash.city + ", " + subhash.state);
           console.log( subhash.city + ", " + subhash.state);
           $('#stats_' + i).html( "(x" + subhash.occurences + ")");
@@ -68,7 +58,8 @@
       for (var j=0; j < ndata.length; j++) {
         if(ndata[j] != null) {
           var nhash = ndata[j] ;
-          var nsubhash = nhash.fan_location;
+          var nsubhash = nhash;
+          console.log(nsubhash);
           $('#nlocation_' + j).html( nsubhash.city + ", " + nsubhash.state);
           console.log( nsubhash.city + ", " + nsubhash.state);
           $('#nstats_' + j).html( "(x" + nsubhash.occurences + ") - " + nsubhash.updated);
@@ -94,9 +85,9 @@
             var id = '#' + key + '_d';
             cont = $(id).html();
             if(cont != data[key]) { 
-              $(id).animate({color: '#D9D919'})
+              $(id).animate({ color: "#76EE00" }, 1000);
               $(id).html(data[key]);
-              $(id).animate({color: '#FFFFFF'})
+              $(id).animate({ color: "#000000" }, 1000);
             }
           }
         }
@@ -140,24 +131,9 @@
 
 
   $(document).ready(function(){ 
-      window.fbAsyncInit = function() {
-        FB.init({appId: '113311612077067', status: true, cookie: true,
-                 xfbml: true});
-      };
-      (function() {
-        var e = document.createElement('script');
-        e.type = 'text/javascript';
-        e.src = document.location.protocol +
-          '//connect.facebook.net/en_US/all.js';
-        e.async = true;
-        document.getElementById('fb-root').appendChild(e);
-      }());
 
     $('#sbam_btn').click(function() {
       shbam();
-      $('#five_btn').click(function(event) {
-        five_email(event.target);
-      });
     });
 
     $("#about_us_link").click(function(){  
@@ -243,13 +219,6 @@
   </div>
 
   <div id="albums_container">
-    <div class="page_album" id="dplayer">
-      <object type="application/x-shockwave-flash" data="/swf/dewplayer-playlist.swf" width="240" height="200" id="dewplayer" name="dewplayer">
-      <param name="wmode" value="transparent" />
-      <param name="movie" value="/swf/dewplayer-playlist.swf" />
-      <param name="flashvars" value="showtime=true&autoreplay=true&xml=/playlist_<%= @album.album_number %>.xml" />
-      </object>
-    </div>
 
     <div id="shbam_container">
       <div id="broad_sbam" class="agency">LIKE WHAT YOU HEAR?</div>
@@ -260,16 +229,12 @@
 
     <div id="full_record_links">
       <div class="page_album album_download">
-        <a href="<%= album_path(@album) + '_m4a.zip' %>" id="all_aac" class="full"><img src="/assets/lossless_album.png"></a>
-        <div class="sizer agency"><%= @album.m4a_size %> MB &nbsp;<span class="gemstone">(<%= @album.tracks.size %> tracks)</span></div>
-      </div>
-      <div class="page_album album_download">
         <a href="<%= album_path(@album) + '_mp3.zip' %>" id="all_mp3" class="full"><img src="/assets/mp3_album.png"></a>
         <div class="sizer agency"><%= @album.mp3_size %> MB &nbsp;<span class="gemstone">(<%= @album.tracks.size %> tracks)</span></div>
       </div>
     </div>
     <div id="location_hits">
-      <p class="agency">CURENTLY BEING BUMPED IN:</p>
+      <p class="agency">CURENTLY BEING LISTENED TO IN:</p>
       <% i = 0 %>
       <% for newest in @newest_three %>
         <div id="nlocation_<%= i %>" class="gemstone location <%= "loc_highlight" if i == 0 %>">
@@ -356,9 +321,6 @@
 
   <div id="page_footer">
     <div class="footer_link as">
-      <a id="other_link" href="/album#index" class="premi" >other albums</a>  
-    </div>  
-    <div class="footer_link as">
       <a id="notified_link" href="" class="premi" >get notified</a>  
     </div>  
     <div class="footer_link as">  
@@ -367,13 +329,6 @@
     <div class="footer_link as">  
       <a id="about_us_link" href="#" class="premi">about us</a>  
     </div>  
-  </div>
-
-
-  <div id="fb_comments_container">
-    <div id="fb-root"></div>
-    <fb:comments colorscheme="dark" migrated="1" href="<%= album_url( @album ) %>" xid="album_<%= @album.album_number %>" numposts="10" width="725" publish_feed="true">
-    </fb:comments>
   </div>
 </div>
 

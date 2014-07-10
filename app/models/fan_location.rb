@@ -1,6 +1,12 @@
 class FanLocation < ActiveRecord::Base
 
+  include ActiveModel::Serialization
+
   attr_accessor :updated, :occurences
+
+  def attributes
+    { :city => nil, :state => nil, :country_code => nil, :created_at => nil, :occurences => nil, :updated => nil }
+  end
 
   def self.newest_three
     retarry = []
@@ -20,9 +26,9 @@ class FanLocation < ActiveRecord::Base
       end
     end
     if rval.size < 3
-      rval[0] = FanLocation.new(:city => "San Francisco", :state => "CA", :country_code => "US", :updated => Time.now.strftime("%m%d%Y"))
-      rval[1] = FanLocation.new(:city => "Los Angeles", :state => "CA", :country_code => "US", :updated  => Time.now.strftime("%m%d%Y"))
-      rval[2] = FanLocation.new(:city => "Austin", :state => "TX", :country_code => "US", :updated => Time.now.strftime("%m%d%Y"))
+      rval[0] = FanLocation.new(:city => "San Francisco", :state => "CA",:occurences => '5', :country_code => "US", :updated => Time.now.strftime("%m/%d/%Y"))
+      rval[1] = FanLocation.new(:city => "Los Angeles", :state => "CA", :occurences => '2', :country_code => "US", :updated  => Time.now.strftime("%m/%d/%Y"))
+      rval[2] = FanLocation.new(:city => "Austin", :state => "TX", :occurences => '1', :country_code => "US", :updated => Time.now.strftime("%m/%d/%Y"))
     end
     return rval
   end
@@ -34,9 +40,9 @@ class FanLocation < ActiveRecord::Base
       fl.updated = candidate.updated_at.strftime("%m/%d/%Y") 
     end
     if rval.size < 3
-      rval[0] = FanLocation.new(:city => "San Francisco", :state => "CA", :country_code => "US", :updated => Time.now.strftime("%m%d%Y"))
-      rval[1] = FanLocation.new(:city => "Los Angeles", :state => "CA", :country_code => "US", :updated  => Time.now.strftime("%m%d%Y"))
-      rval[2] = FanLocation.new(:city => "Austin", :state => "TX", :country_code => "US", :updated => Time.now.strftime("%m%d%Y"))
+      rval[0] = FanLocation.new(:city => "San Francisco", :state => "CA",:occurences => '5', :country_code => "US", :updated => Time.now.strftime("%m%d%Y"))
+      rval[1] = FanLocation.new(:city => "Los Angeles", :state => "CA", :occurences => '3', :country_code => "US", :updated  => Time.now.strftime("%m%d%Y"))
+      rval[2] = FanLocation.new(:city => "Austin", :state => "TX", :occurences => '1', :country_code => "US", :updated => Time.now.strftime("%m%d%Y"))
     end
     return rval
   end
