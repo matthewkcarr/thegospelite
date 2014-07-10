@@ -241,7 +241,7 @@
           <%= newest.city + ", " + newest.state %>
         </div>
         <div id="nstats_<%= i %>" class="stats gemstone">
-          <%= "(x" + newest.occurences.to_s + ") - " + newest.updated %>
+          <%= "(x" + newest['occurences'].to_i.to_s + ") - " + newest['updated'].to_s %>
         </div>
         <% i += 1 %>
       <% end %>
@@ -308,7 +308,7 @@
     <% for top in @top_three %>
       <div class="ccont">
         <div id="stats_<%= i %>" class="cstats gemstone">
-          <%= "(x" + top.occurences.to_s + ")" %>
+          <%= "(x" + top['occurences'].to_s + ")" %>
         </div>
         <div id="location_<%= i %>" class="gemstone clocation <%= "loc_highlight" if i == 0 %>">
           <%= top.city + ", " + top.state %>

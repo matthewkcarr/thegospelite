@@ -1,12 +1,12 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.0.4'
+gem 'rails', '4.1.0'
 gem 'mysql'
 gem 'geokit'
-gem 'sass-rails'
+gem 'sass-rails', '4.0.3'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier' #, '>= 1.3.0'
 
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
