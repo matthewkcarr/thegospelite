@@ -32,14 +32,14 @@ img {
   top: -1475px;
   left: 0px;
   text-align: left;
-  .band {
-    font-size: 90pt;
-  }
-  .title {
-    font-size: 20pt;
-    letter-spacing: 0.33em;
-    margin-left: 9px;
-  }
+}
+.band {
+  font-size: 90pt;
+}
+.title {
+  font-size: 20pt;
+  letter-spacing: 0.33em;
+  margin-left: 9px;
 }
 .pupcat {
   font-family: 'pupcat';
@@ -63,14 +63,7 @@ img {
   font-family: 'BroadwayRegular';
 }
 #header_top {
-  text-align: center;
   padding-bottom: 30px;
-}
-#band_name {
-  font-size: 7.2em;
-}
-#album_name {
-  font-size: 1.81em;
 }
 img.album {
   max-width: 281px;
@@ -81,8 +74,6 @@ img.album {
   padding-left: 35px;
 }
 .alb_header_1 {
-  letter-spacing: 0.41em;
-  padding-left: 13px;
 }
 #feat_name {
   text-align: right;
@@ -90,24 +81,10 @@ img.album {
   font-size: 2.2em;
 }
 #container{
-  background-color: white;
+  position: relative;
+  top: -912px;
   text-align: left;
-  margin-left: auto;
-  margin-right: auto;
-  width: 65em;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
 
-}
-#page {
-  padding-top: 40px;
-  padding-bottom: 40px;
-  text-align: left;
-  width: 900px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50em;
 }
 #albums_container {
   padding-top: 50px;
@@ -171,17 +148,6 @@ img.album {
 .clear {
   clear: both;
 }
-#page_footer {
-  padding-top: 40px;
-  padding-bottom: 40px;
-}
-.footer_link {
-  float: left;
-  font-size: 2.0em;
-}
-.as {
-  padding-left: 90px;
-}
 .aa {
   padding-left: 120px;
 }
@@ -195,63 +161,6 @@ img.album {
   display:none; 
   text-align:left; 
 } 
-.msgbox { 
-  z-index:200; 
-}  
-.msgbox img {
-  border:none; 
-  margin:5px;
-}  
-.msgbox_content {
-  padding-left: 112px;
-  padding-right : 112px;
-  padding-bottom: 37px;
-}
-.close{ 
-  top: 0px; 
-  float:right; 
-}  
-.rounded_submit {
-  background-color: #d20ad0;
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-}
-.rounded {
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  border-radius: 15px;
-}
-.message_us_submit {
-  padding: 6px 16px 6px 16px;
-  float: right;
-  margin-left: 30px;
-}
-.message_us_inputs {
-  width: 280px;
-  border: none;
-}
-#message_us_header {
-  font-size: 25px;
-  padding-left: 30px;
-}
-#notified_header {
-  padding-left: 10px;
-  padding-top: 10px;
-}
-#about_header {
-  padding-left: 15px;
-  padding-top: 15px;
-}
-#about_content {
-  width: 300px;
-  margin: 0 auto;
-}
-#fb_comments_container {
-  padding-top: 30px;
-  padding-bottom: 40px;
-  text-align: center;
-}
 .sizer {
   padding-top: 20px;
   padding-left: 110px;
@@ -316,11 +225,6 @@ img.album {
   margin: 0 auto;
   padding: 25px 40px;
 }
-#five_form {
-  width: 300px;
-  margin: 0 auto;
-  text-align: right;
-}
 #city_leaderboard {
   padding-top: 0px;
   padding-bottom: 80px;
@@ -341,39 +245,12 @@ img.album {
   display: inline;
 }
 form input[type="text"] {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
   height: 25px;
   font-size: 12pt;
 }
 form textarea {
-  -webkit-border-radius: 8px;
-  -moz-border-radius: 8px;
-  border-radius: 8px;
 }
 form input:focus {
   border: 3px solid #d20ad0;
   outline: none; 
-}
-#kill_bad_guys {
-  width:451px;
-  margin: 0 auto;
-  padding-bottom: 70px;
-}
-#kill_bad_guys {
-  cursor: pointer;
-}
-#cc {
-}
-#cc_image {
-  padding-right: 118px;
-  text-align: right;
-}
-#cc_errata {
-  font-size: 10px;
-  margin: 10px 0 10px auto;
-  padding-right: 38px;
-  text-align: right;
-  width: 245px;
 }
