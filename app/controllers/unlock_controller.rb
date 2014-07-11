@@ -56,13 +56,16 @@ class UnlockController < ApplicationController
   def fan_shbam
     ip = request.remote_ip || "127.0.0.1"
     ip = "12.162.204.45" if ip == "127.0.0.1"
-    @guser = Geokit::Geocoders::MultiGeocoder.geocode(ip)
-    @fan_location = FanLocation.new(:city => @guser.city, :state => @guser.state, :country_code => @guser.country_code, :ip_address => ip)
-    if @fan_location.state.nil?
-      @fan_location.state = @fan_location.country_code
+    begin
+      @guser = Geokit::Geocoders::MultiGeocoder.geocode(ip)
+      @fan_location = FanLocation.new(:city => @guser.city, :state => @guser.state, :country_code => @guser.country_code, :ip_address => ip)
+    rescue
     end
     if @fan_location.nil? or @fan_location.city.nil?
       @fan_location = FanLocation.new(:city => 'Luxembourg', :state => 'EU', :country_code => 'EU', :ip_address => ip)
+    end
+    if @fan_location.state.nil?
+      @fan_location.state = @fan_location.country_code
     end
     @fan_location.save
     @top_three = FanLocation.top_three
@@ -71,7 +74,7 @@ class UnlockController < ApplicationController
     #  ret[track.id] = number_with_delimiter(track.download_count)
     #end
     respond_to do |format|
-      format.json { render :json => @top_three }
+      format.json { render :json => @top_three.to_json }
     end
   end
 

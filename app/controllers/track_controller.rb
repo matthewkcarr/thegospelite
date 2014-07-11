@@ -7,7 +7,8 @@ class TrackController < ApplicationController
       redirect_to '/albums'
       return
     end
-    @track = Track.find(:first, :conditions => {:album_id => @album, :track_number => params[:id]})
+    @track = Track.where(:album_id => @album, :track_number => params[:id]).first
+    puts @track.class.to_s
     @track.transaction do
       @track.download_count = @track.download_count + 1
       @track.download_referer = request.referer
