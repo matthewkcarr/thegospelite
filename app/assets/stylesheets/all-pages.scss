@@ -1,6 +1,7 @@
+
 html {
   background-color: white;
-  background-image:url('/assets/background-pattern.png');
+  //background-image:url('/assets/background-pattern.png');
   background-repeat: repeat;
 }
 body {
@@ -22,6 +23,29 @@ a.purple:hover {
 img {
   text-decoration: none;
   border:none;
+}
+#canvas {
+  //background: lightskyblue;
+}
+#tree_header {
+  position: relative;
+  top: -1475px;
+  left: 0px;
+  text-align: left;
+  .band {
+    font-size: 90pt;
+  }
+  .title {
+    font-size: 20pt;
+    letter-spacing: 0.33em;
+    margin-left: 9px;
+  }
+}
+.pupcat {
+  font-family: 'pupcat';
+}
+.diner {
+  font-family: 'DinerObese';
 }
 .gemstone {
   font-family: 'GemFontOneRegular';
