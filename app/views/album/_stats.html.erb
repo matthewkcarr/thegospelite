@@ -1,0 +1,93 @@
+  <div id="albums_container">
+    <div id="shbam_container">
+      <div id="broad_sbam" class="agency">LIKE WHAT YOU HEAR?</div>
+      <div id="bam_btn_container"><img src="/assets/sbam_btn.png" id="sbam_btn"></div>
+    </div>
+
+    <div class="clear"></div>
+
+    <div id="location_hits">
+      <p class="agency">CURENTLY BEING LISTENED TO IN:</p>
+      <% i = 0 %>
+      <% for newest in @newest_three %>
+        <div id="nlocation_<%= i %>" class="gemstone location <%= "loc_highlight" if i == 0 %>">
+          <%= newest.city + ", " + newest.state %>
+        </div>
+        <div id="nstats_<%= i %>" class="stats gemstone">
+          <%= "(x" + newest.occurences.to_s + ") - " + newest.updated.to_s %>
+        </div>
+        <% i += 1 %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="clear"></div>
+
+
+  <div id="head_seperator">
+  </div>
+
+  <% if @album.cc_license %>
+    <div id="cc">
+      <div id="cc_image">
+        <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a>
+      </div>
+      <div id="cc_errata">
+        <span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Sound" property="dct:title" rel="dct:type">The Tares Destroyer</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://bumptiousmusic.com/album/1-Bumptious-The-Tares-Destroyer" property="cc:attributionName" rel="cc:attributionURL">Bumptious</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_US">Creative Commons Attribution 3.0 Unported License</a>.<br />Based on a work at <a xmlns:dct="http://purl.org/dc/terms/" href="http://bumptiousmusic.com/album/1-Bumptious-The-Tares-Destroyer" rel="dct:source">http://bumptiousmusic.com</a>
+      </div>
+    </div>
+  <% end %>
+
+  <div id="headers" class="broadway">
+    <div class="header" id="header_tnum">
+      Track
+    </div>
+    <div class="header" id="header_ttitle">
+      &nbsp;
+    </div>
+    <div class="header" id="header_ndown">
+     DL Count
+    </div>
+    <div class="header" id="header_types">
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div id="track_seperator">
+  </div>
+  <div id="content_info">
+    <% @tracks.each do |track| %>
+      <div class="track">
+        <div class="tinfo track_number" class="gemstone">
+        <%= track.track_number.to_s %>.
+        </div>
+        <div class="tinfo track_name">
+          <a id="<%= track.id.to_s %>_l" href="<%= album_track_path(@album, track) + '.mp3' %>" class="gemstone"><%= track.name.upcase %></a>
+        </div>
+        <div id="<%= track.id.to_s %>_d" class="tinfo downloads gemstone">
+                <%= number_with_delimiter(track.download_count) %> 
+        </div>
+        <div class="tinfo track_link gemstone">
+          <a class="download link" id="<%= track.id.to_s %>_l" href="<%= album_track_path(@album, track) + '.mp3' %>">mp3</a>&nbsp;
+          <a class="download link purple" id="<%= track.id.to_s %>_u" href="<%= album_track_path(@album, track) + '.m4a' %>">m4a</a>
+        </div>
+      </div>
+      <div class="clear"></div>
+    <% end %>
+    </div>
+
+    <div id="city_leaderboard">
+      <p class="agency">CITY RANKINGS</p>
+      <% i = 0 %>
+      <% for top in @top_three %>
+        <div class="ccont">
+          <div id="stats_<%= i %>" class="cstats gemstone">
+            <%= "(x" + top.occurences.to_s + ")" %>
+          </div>
+          <div id="location_<%= i %>" class="gemstone clocation <%= "loc_highlight" if i == 0 %>">
+            <%= top.city + ", " + top.state %>
+          </div>
+        </div>
+        <% i += 1 %>
+      <% end %>
+    </div>
+  </div>

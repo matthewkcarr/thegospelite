@@ -38,9 +38,8 @@ class AlbumController < ApplicationController
           dname = @album.name + ' Album LOSSLESS M4U.zip'
           send_file Rails.root + '/public/music/album/' + @album.album_number.to_s + '_m4a.zip', :filename => dname, :type=>"application/force-download"
         elsif params[:id] and params[:id].include?('mp3')
-          #dname = 'Bumptious - Remix Elixirs Album LOSSY MP3' + '.zip'
-          dname = @album.name + ' Album LOSSY MP3.zip'
-          send_file Rails.root + '/public/music/album/' + @album.album_number.to_s + '_mp3.zip', :filename => dname, :type=>"application/force-download"
+          dname = @album.name + ' Album MP3.zip'
+          send_file File.join(Rails.root, '/public/music/album/',@album.album_number.to_s + '_mp3.zip'), :filename => dname, :type=>"application/force-download"
         end
       }
       format.all {

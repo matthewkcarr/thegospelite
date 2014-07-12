@@ -8,7 +8,6 @@ body {
   color: black;
   text-align: center;
   font-family: "Helvetica", sans-serif;
-
 }
 a, a:visited, a:hover {
   text-decoration: none;
@@ -63,7 +62,7 @@ img {
   font-family: 'BroadwayRegular';
 }
 #header_top {
-  padding-bottom: 30px;
+  padding-bottom: 0px;
 }
 img.album {
   max-width: 281px;
@@ -82,9 +81,9 @@ img.album {
 }
 #container{
   position: relative;
-  top: -912px;
+  top: -897px;
+  margin-left: 10px;
   text-align: left;
-
 }
 #albums_container {
   padding-top: 50px;
@@ -92,6 +91,25 @@ img.album {
 }
 #dplayer {
   padding-top: 20px;
+}
+#download_text {
+  font-family: 'pupcat';
+  font-size: 60pt;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+  a:hover {
+    color: black;
+    text-decoration: none;
+  }
+}
+#twitter {
+  font-family: 'gemstone';
+  font-size: 20pt;
+}
+.float {
+  float: left;
 }
 .page_album {
   float: left;
@@ -163,7 +181,7 @@ img.album {
 } 
 .sizer {
   padding-top: 20px;
-  padding-left: 110px;
+  padding-left: 80px;
 }
 #shbam_container {
   float: right;

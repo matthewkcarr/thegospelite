@@ -164,7 +164,8 @@ $(document).ready(function(){
 	/* for contact us */
 	/******************/
 
-	var timer = setInterval("update_counts()",30000);
+	//if we use the stats partial then we need this. but not right now
+	//var timer = setInterval("update_counts()",30000);
 });
 //audiojs.events.ready(function() {
 //	var as = audiojs.createAll();
